@@ -8,7 +8,7 @@ export default component$(() => {
         async
         src="https://telegram.org/js/telegram-widget.js?22"
         data-telegram-login="fruitmachinebot"
-        data-auth-url="http://127.0.0.1:5173/u/"
+        data-auth-url="/u/"
         data-request-access="write"
       ></script>
 
