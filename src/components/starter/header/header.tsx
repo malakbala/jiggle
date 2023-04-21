@@ -3,7 +3,7 @@ import { Link } from '@builder.io/qwik-city';
 
 export default component$(() => {
   return (
-    <label class=" flex items-center justify-between p-2 gap-4 border-b">
+    <label class=" flex items-center justify-between p-2 gap-2 border-b">
       <script
         async
         src="https://telegram.org/js/telegram-widget.js?22"
