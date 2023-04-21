@@ -7,8 +7,12 @@ export const getProductData = routeLoader$(async ({ params }) => {
     `https://api.telegram.org/bot5940002331:AAGsckouc94dyFEG1Ssw7IXKao-5E_YZ2wo/getUserProfilePhotos?user_id=${params.id}`
   );
   const b = await a.json();
-  console.log(b.result.photos);
-
+  console.log();
+  const c = await fetch(
+    `https://api.telegram.org/bot5940002331:AAGsckouc94dyFEG1Ssw7IXKao-5E_YZ2wo/getFile?file_id=${b.result.photos[0][0].file_id}`
+  );
+  const d = await c.json();
+  console.log(d);
   return { id: params.id };
 });
 
@@ -17,10 +21,7 @@ export default component$(() => {
   return (
     <div class="container">
       <div class="flex justify-between gap-4 p-4 ">
-        <img
-          src="/pic/a (1).jpg"
-          class="rounded-full w-28 h-28 border border-sky-500"
-        />
+        <img class="rounded-full w-28 h-28 border border-sky-500" />
         <h1 class="flex-1">iman malakbala</h1>
         <h1>{signal.value.id}</h1>
       </div>
