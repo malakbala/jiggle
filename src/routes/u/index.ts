@@ -1,9 +1,10 @@
 import type { RequestEvent } from '@builder.io/qwik-city';
 
-export const onGet = async (r: RequestEvent) => {
-  r.json(200, { hello: 'world' });
+export const onGet = async ({ query, redirect }: RequestEvent) => {
+  const o = Object.fromEntries(query);
+  redirect(302, `/u/${o.id}`);
 
-  const o = Object.fromEntries(r.query);
-  r.redirect(302, `/u/${o.id}`);
-  console.log(o);
+  if (o.id) {
+    throw redirect(302, `/u/${o.id}`);
+  }
 };
