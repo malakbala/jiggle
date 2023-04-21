@@ -26,14 +26,14 @@ export default component$(() => {
   const signal = getProductData();
   return (
     <div class="container">
-      <div class="flex justify-between gap-4 p-4 ">
+      <div class="flex justify-between gap-4 p-4 bg-gradient-to-r from-indigo-500">
         <img
           src={`https://api.telegram.org/file/bot5940002331:AAGsckouc94dyFEG1Ssw7IXKao-5E_YZ2wo/${signal.value.pp}`}
           class="rounded-full w-28 h-28 border border-sky-500"
         />
-        <h1 class="flex-1">iman malakbala</h1>
-        <h1>{signal.value.id}</h1>
       </div>
+      <h1 class="flex-1">iman malakbala</h1>
+      <h1>{signal.value.id}</h1>
     </div>
   );
 });
