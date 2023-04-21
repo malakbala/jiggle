@@ -2,7 +2,13 @@ import { component$ } from '@builder.io/qwik';
 import { DocumentHead } from '@builder.io/qwik-city';
 import { routeLoader$ } from '@builder.io/qwik-city';
 
-export const getProductData = routeLoader$(({ params }) => {
+export const getProductData = routeLoader$(async ({ params }) => {
+  const a = await fetch(
+    `https://api.telegram.org/bot5940002331:AAGsckouc94dyFEG1Ssw7IXKao-5E_YZ2wo/getUserProfilePhotos?user_id=${params.id}`
+  );
+  const b = await a.json();
+  console.log(b.result.photos);
+
   return { id: params.id };
 });
 
