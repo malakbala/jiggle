@@ -7,11 +7,18 @@ export const getProductData = routeLoader$(async ({ params }) => {
     `https://api.telegram.org/bot5940002331:AAGsckouc94dyFEG1Ssw7IXKao-5E_YZ2wo/getUserProfilePhotos?user_id=${params.id}`
   );
   const b = await a.json();
-  console.log();
+
   const c = await fetch(
     `https://api.telegram.org/bot5940002331:AAGsckouc94dyFEG1Ssw7IXKao-5E_YZ2wo/getFile?file_id=${b.result.photos[0][0].file_id}`
   );
   const d = await c.json();
+
+  const e = await fetch(
+    `https://api.telegram.org/bot5940002331:AAGsckouc94dyFEG1Ssw7IXKao-5E_YZ2wo/getChat?chat_id=${params.id}`
+  );
+  const f = await e.json();
+
+  console.log(f);
   return { id: params.id, pp: d.result.file_path };
 });
 
