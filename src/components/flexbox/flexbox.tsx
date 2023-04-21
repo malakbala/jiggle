@@ -1,18 +1,18 @@
-import { useStyles$, component$, useStore } from "@builder.io/qwik";
-import { Link } from "@builder.io/qwik-city";
-import styles from "./flexbox.css?inline";
+import { useStyles$, component$, useStore } from '@builder.io/qwik';
+import { Link } from '@builder.io/qwik-city';
+import styles from './flexbox.css?inline';
 
 export default component$((prop: { list: any }) => {
   useStyles$(styles);
-  const state = useStore(["hello", "goodbye", "no"]);
+  const state = useStore(['hello', 'goodbye', 'no']);
   return (
     <section>
       <details class="p-2">
         <summary style="word-spacing:4px;" class="opacity-60">
-          About{" "}
-          {Intl.NumberFormat("fa", { notation: "compact" }).format(
+          About{' '}
+          {Intl.NumberFormat('fa', { notation: 'compact' }).format(
             100000000000
-          )}{" "}
+          )}{' '}
           results
         </summary>
         <div>
@@ -44,9 +44,9 @@ export default component$((prop: { list: any }) => {
                 autoComplete="off"
                 onKeyDown$={(z) => {
                   const v = z.target as HTMLInputElement;
-                  if (z.key == "Enter") {
+                  if (z.key == 'Enter') {
                     state.push(v.value);
-                    v.value = "";
+                    v.value = '';
                   }
                 }}
               />
@@ -57,9 +57,10 @@ export default component$((prop: { list: any }) => {
         </div>
       </details>
 
-      <main class="gallery">
+      <main class="flex flex-wrap gap-1 p-1 shadow-2xl">
         {prop.list.map((item: any, index: number) => (
           <figure
+            class="relative min-h-[150px]"
             style={{
               flexGrow: (item.width * 100) / item.height,
               flexBasis: `${(item.width * 240) / item.height}px`,
@@ -67,11 +68,11 @@ export default component$((prop: { list: any }) => {
           >
             <Link class="a" href={`/p/${item.name}`}>
               <img
-                class="img"
+                class="img w-full"
                 alt="hello"
-                title={new Intl.RelativeTimeFormat("fa", {
-                  numeric: "auto",
-                }).format(-3, "day")}
+                title={new Intl.RelativeTimeFormat('fa', {
+                  numeric: 'auto',
+                }).format(-3, 'day')}
                 loading="lazy"
                 width={item.width}
                 height={item.height}
